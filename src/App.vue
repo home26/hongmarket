@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import storage from './storage/index'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+
+  },
+  mounted(){
+    //storage.setItem('user',{a:1});
+    //storage.setItem('abc',{a:1},'user');
+    storage.clear('a');
   }
 }
 </script>
