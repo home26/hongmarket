@@ -51,6 +51,7 @@ export default {
 </script>
 <style lang="scss">
     @import './../assets/scss/base.scss';
+    @import './../assets/scss/mixin.scss';
     .header{
         .nav-topbar{
             height:39px;
@@ -58,9 +59,7 @@ export default {
             background-color: #333333;
             color:#B0B0B0;
             .container{
-               display: flex;
-               justify-content: space-between;
-               align-items: center;
+               @include flex(); 
                a{
                    display: inline-block;
                    color:#B0B0B0;
@@ -72,12 +71,7 @@ export default {
                    text-align: center;
                    color:#ffffff;
                    .icon-cart{
-                      display: inline-block;
-                      width: 36px;
-                      height: 12px; 
-                      background: url('/imgs/icon-cart-checked.png') no-repeat center; 
-                      background-size: contain;
-                      margin-right: 4px;
+                      @include bgImg(16px,12px,'/imgs/icon-cart-checked.png',contain); 
                    }
                }
             }
@@ -85,9 +79,7 @@ export default {
         .nav-header{
             .container{
                 height: 112px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                @include flex(); 
                 .header-logo{
                     display: inline-block;
                     width: 55px;
@@ -98,22 +90,12 @@ export default {
                         height: 55px;
                         &:before{
                             content:' ';
-                            display: inline-block;
-                            width: 55px;
-                            height: 55px;
-                            background: url('/imgs/hm-logo.png') no-repeat center;
-                            background-size: 55px;
-                            //@include bgImg(55px,55px,'/imgs/hm-logo.png',55px);
+                            @include bgImg(55px,55px,'/imgs/hm-logo.png',55px);
                             transition: margin .2s;
                         }
                         &:after{
                             content:' ';
-                            display: inline-block;
-                            width: 55px;
-                            height: 55px;
-                            background: url('/imgs/hm-home.png') no-repeat center;
-                            background-size: 55px;
-                            //@include bgImg(55px,55px,'/imgs/hm-logo.png',55px);
+                            @include bgImg(55px,55px,'/imgs/hm-home.png',55px);
                         }
                         &:hover:before{
                             margin-left: -55px;
@@ -157,10 +139,7 @@ export default {
                         }
                         a{
                             display: inline-block;
-                            width:18px;
-                            height:18px;
-                            background: url('/imgs/icon-search.png') no-repeat center;
-                            background-size: contain;
+                            @include bgImg(18px,18px,'/imgs/icon-search.png',contain);                            
                             margin-left: 17px;
                         }
                     }
