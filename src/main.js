@@ -3,13 +3,13 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import App from './App.vue'
-import env from './env'
+//import env from './env'
 
 //adjust it based on how the front end implemented the cross-domain method
 axios.defaults.baseURL = '/api';
 axios.defaults.timeout = 8000;
 //get baseURL according to the environment variables
-axios.defaults.baseURL = env.baseURL;
+//axios.defaults.baseURL = env.baseURL;
 //interceptor of wrong API request
 axios.interceptors.response.use(function(response){
   let res = response.data;

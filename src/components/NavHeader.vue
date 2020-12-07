@@ -217,7 +217,29 @@
 </template>
 <script>
 export default {
-    name:'nav-header'
+    name:'nav-header',
+    data(){
+        return {
+            username:'jack',
+            phoneList:[]
+        }
+    },
+    mounted(){
+        this.getProductList();
+    },
+    methods:{
+       getProductList(){
+           this.axios.get('/products',{
+               params:{
+                   categoryId:'100012'
+               }
+           }).then((res)=>{
+               if(res.list.length>6){
+                   this.phoneList = res.list.slice(0,6);     
+               }
+           })
+       } 
+    }
 }
 </script>
 <style lang="scss">
