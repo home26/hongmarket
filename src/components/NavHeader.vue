@@ -9,9 +9,10 @@
                 <a href="javascript:;">Terms & Conditions</a>
             </div>
             <div class="topbar-user">
-                <a href="javascript:;">Log In</a>
-                <a href="javascript:;">Sign Up</a>
-                <a href="javascript:;" class="my-cart"><span class="icon-cart"></span>Cart</a>
+                <a href="javascript:;" v-if="username">{{username}}</a>
+                <a href="javascript:;" v-if="!username" @click="login">Log In</a>
+                <a href="javascript:;" v-if="username">My Order</a>
+                <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>Cart</a>
             </div>
           </div>
       </div>
@@ -25,58 +26,13 @@
                       <span>Phone</span>
                       <div class="children">
                           <ul>
-                              <li class="product">
-                                  <a href="" target="_blank">
+                              <li class="product" v-for="(item,index) in phoneList" :key="index">
+                                  <a v-bind:href="'/#/product/'+item.id" target="_blank">
                                       <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
+                                          <img :src="item.mainImage" :alt="item.subtitle">
                                       </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
+                                      <div class="pro-name">{{item.name}}</div>
+                                      <div class="pro-price">{{item.price | currency}}</div>
                                   </a>
                               </li>
                           </ul>
@@ -86,58 +42,13 @@
                       <span>PC</span>
                       <div class="children">
                           <ul>
-                              <li class="product">
-                                  <a href="" target="_blank">
+                              <li class="product" v-for="(item,index) in phoneList" :key="index">
+                                  <a v-bind:href="'/#/product/'+item.id" target="_blank">
                                       <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
+                                          <img :src="item.mainImage" :alt="item.subtitle">
                                       </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
-                                  </a>
-                              </li>
-                              <li class="product">
-                                  <a href="" target="_blank">
-                                      <div class="pro-img">
-                                          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-family-hero?wid=470&amp;amp;hei=556&amp;amp;fmt=jpeg&amp;amp;qlt=95&amp;amp;op_usm=0.5,0.5&amp;amp;.v=1604021663000">
-                                      </div>
-                                      <div class="pro-name">Hong CC9</div>
-                                      <div class="pro-price">$399</div>
+                                      <div class="pro-name">{{item.name}}</div>
+                                      <div class="pro-price">{{item.price | currency}}</div>
                                   </a>
                               </li>
                           </ul>
@@ -220,24 +131,37 @@ export default {
     name:'nav-header',
     data(){
         return {
-            username:'jack',
+            username:'',
             phoneList:[]
+        }
+    },
+    filters:{
+        currency(val){
+            if(!val)return '0.00';
+            return '$'+val.toFixed(2);
         }
     },
     mounted(){
         this.getProductList();
     },
     methods:{
+       login(){
+           this.$router.push('/login');
+       },
        getProductList(){
            this.axios.get('/products',{
                params:{
-                   categoryId:'100012'
+                   categoryId:'100012',
+                   pageSize:6
                }
            }).then((res)=>{
-               if(res.list.length>6){
+               if(res.list.length >= 6){
                    this.phoneList = res.list.slice(0,6);     
                }
            })
+       },
+       goToCart(){
+          this.$router.push('/cart');
        } 
     }
 }
