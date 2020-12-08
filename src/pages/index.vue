@@ -1,10 +1,12 @@
 <template>
     <div>
-        index
+    <service-bar></service-bar>
     </div>
 </template>
 <script>
-export default {
-    name:'nav-index'
-}
+    import ServiceBar from './../components/ServiceBar'
+    export default {
+        components: { ServiceBar },
+        name:'index'
+    }
 </script>

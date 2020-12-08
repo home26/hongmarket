@@ -3,7 +3,7 @@
       <div class="nav-topbar">
           <div class="container">
             <div class="topbar-menu">
-                <a href="https://excellenthong.ca/">Hong</a>
+                <a href="https://excellenthong.ca/" target="_blank">Hong</a>
                 <a href="javascript:;">New!</a>
                 <a href="javascript:;">On Sale</a>
                 <a href="javascript:;">Terms & Conditions</a>
@@ -207,18 +207,19 @@ export default {
                         display: inline-block;
                         width: 110px;
                         height: 55px;
-                        &:before{
+                        &::before{
                             content:' ';
                             @include bgImg(55px,55px,'/imgs/hm-logo.png',55px);
-                            transition: margin .2s;
+                            transition:margin .2s;
                         }
-                        &:after{
+                        &::after{
                             content:' ';
-                            @include bgImg(55px,55px,'/imgs/hm-home.png',55px);
+                            //@include bgImg(55px,55px,'/imgs/hm-home.png',55px);
                         }
-                        &:hover:before{
-                            margin-left: -55px;
-                            transition: margin .2s;
+                        &:hover::before{
+                            @include bgImg(55px,55px,'/imgs/hm-home.png',55px);
+                            //margin-left: -55px;
+                            //transition-duration:  .2s;
                         }
                     }
                 }
@@ -255,6 +256,7 @@ export default {
                             box-shadow: 0px 7px 6px 0px rgba(0,0,0,0.11);
                             z-index: 10;
                             transition:all .5s;
+                            background-color: #ffffff;
                             .product{
                                 position: relative;
                                 float: left;
