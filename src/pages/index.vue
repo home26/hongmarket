@@ -2,6 +2,35 @@
     <div class="index">
         <div class="container">
             <div class="swiper-box">
+              <div class="nav-menu">
+                  <ul class="menu-wrap">
+                      <li class="menu-item">
+                          <a href="javascript:;">Phone SIM</a>
+                          <div class="children"></div>
+                      </li>
+                      <li class="menu-item">
+                          <a href="javascript:;">TV TVBox</a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="javascript:;">Laptop Pad</a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="javascript:;">Appliance Socket</a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="javascript:;">Clothes Life</a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="javascript:;">Router Network</a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="javascript:;">Power Accessory</a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="javascript:;">Trip Suitcase</a>
+                      </li>
+                  </ul>
+              </div>
               <swiper v-bind:options="swiperOption">
                   <swiper-slide v-for="(item,index) in slideList" v-bind:key="index">
                       <a v-bind:href="'/#/product/'+item.id"><img v-bind:src="item.img"></a>
@@ -21,7 +50,7 @@
 <script>
     import ServiceBar from './../components/ServiceBar'
     import {Swiper, SwiperSlide} from 'vue-awesome-swiper'
-    import 'swiper/swiper-bundle.css'
+    import 'swiper/css/swiper.css'
     export default {
         name:'index',
         components: { Swiper, SwiperSlide, ServiceBar },
@@ -36,6 +65,14 @@
                         shadow: true,
                         shadowOffset: 100,
                         shadowScale: 0.6
+                    },
+                    pagination:{
+                        el:'.swiper-pagination',
+                        clickable:true,
+                    },
+                    navigation:{
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
                     }
                 },
                 slideList:[
@@ -63,6 +100,20 @@
 <style lang="scss">
     .index{
         .swiper-box{
+            .nav-menu{
+               position:absolute;
+               width: 264px;
+               height: 451;
+               z-index: 9; 
+               padding: 26px 0;
+               background-color:#55585A;
+               .menu-wrap{
+                   .menu-item{
+                       height:50px;
+                       line-height: 50px;
+                   }
+               }
+            }
             .swiper-container{
                 height: 451px;
                 img{
