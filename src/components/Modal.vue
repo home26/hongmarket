@@ -1,6 +1,7 @@
 <template>
     <div class="modal" v-show="showModal">
         <div class="mask">
+        </div>
             <div class="modal-dialog">
                 <div class="modal-header">
                     <span>Title</span>
@@ -10,11 +11,12 @@
                     <slot name="body"></slot>
                 </div>
                 <div class="modal-footer">
-                    <a href="javascript:;" class="btn">Confirm</a>          
-                    <a href="javascript:;" class="btn">Cancel</a>            
+                    <div class="btn-group">
+                        <a href="javascript:;" class="btn">Confirm</a>          
+                        <a href="javascript:;" class="btn">Cancel</a>
+                    </div>            
                 </div>
             </div>
-        </div>
     </div>
 </template>
 <script>
