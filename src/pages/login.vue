@@ -72,9 +72,13 @@ export default {
 .login{
   &>.container{
     height:113px;
+    margin-top: 12px;
+    vertical-align: center;
     img{
+      //margin-top: 30px;
+      //margin-bottom: 30px;
       width:auto;
-      height:100%;
+      height:60%;
     }
   }
   .wrapper{
