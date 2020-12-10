@@ -7,7 +7,7 @@
       <div class="container">
         <div class="login-form">
           <h3>
-            <span class="checked">Login by account</span><span class="sep-line">|</span><span>Login by QR code</span>
+            <span class="checked">Account Login</span><span class="sep-line">|</span><span>QR Login</span>
           </h3>
           <div class="input">
             <input type="text" placeholder="Please enter account" v-model="username">
@@ -30,7 +30,7 @@
         <a href="https://excellenthong.ca/" target="_blank">Developed By Hong</a><span>|</span>
         <a href="https://excellenthong.ca/" target="_blank">Welcome To Hong's Website</a>
       </div>
-      <p class="copyright">Copyright ©2019 mi.futurefe.com All Rights Reserved.</p>
+      <p class="copyright">Copyright ©2020 hongmarket.com All Right Reserved</p>
     </div>
   </div>
 </template>
