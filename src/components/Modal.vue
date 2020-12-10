@@ -1,5 +1,6 @@
 <template>
-    <div class="modal" v-show="showModal">
+    <transition name="slide">
+        <div class="modal" v-show="showModal">
         <div class="mask">
         </div>
             <div class="modal-dialog">
@@ -11,13 +12,16 @@
                     <slot name="body"></slot>
                 </div>
                 <div class="modal-footer">
-                    <div class="btn-group">
-                        <a href="javascript:;" class="btn">Confirm</a>          
-                        <a href="javascript:;" class="btn">Cancel</a>
+                    <a href="javascript:;" class="btn" v-if="btnType==1" v-on:click="$emit('submit')">Confirm</a>
+                    <a href="javascript:;" class="btn" v-if="btnType==2" v-on:click="$emit('cancel')">Confirm</a>   
+                    <div class="btn-group" v-else>
+                        <a href="javascript:;" class="btn" v-on:click="$emit('submit')">Confirm</a>          
+                        <a href="javascript:;" class="btn" v-on:click="$emit('cancel')">Cancel</a>
                     </div>            
                 </div>
             </div>
-    </div>
+        </div>
+    </transition>
 </template>
 <script>
     export default{

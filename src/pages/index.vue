@@ -77,7 +77,7 @@
                                 <div class="item-info">
                                     <h3>{{item.name}}</h3>
                                     <p>{{item.subtitle}}</p>
-                                    <p class="price">${{item.price}}</p>
+                                    <p class="price" @click="addCart(item.id)">${{item.price}}</p>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                 </div>
         </div>
         <service-bar></service-bar>
-        <modal title="Notification" sureText="Go To Cart" btnType="1" modalType="middle" v-bind:showModal="true">
+        <modal title="Notification" sureText="Go To Cart" btnType="1" modalType="middle" v-bind:showModal="showModal" v-on:submit="goToCart" v-on:cancel="showModal=false">
                <template v-slot:body>
                    <p>The product has been added successfully test</p>
                </template>       
@@ -179,7 +179,8 @@
                         img:'/imgs/ads/ads-4.jpg'
                     }
                 ],
-                phoneList:[]
+                phoneList:[],
+                showModal:false
             }
         },
         mounted(){
@@ -196,6 +197,21 @@
                     res.list = res.list.slice(6,14);
                     this.phoneList = [res.list.slice(0,4),res.list.slice(4,8)];
                 })               
+            },
+            addCart(){
+               this.showModal = true;
+               return;
+               /*this.axios.post('/carts',{
+                   productId:id,
+                   selected:true             
+               }).then(()=>{
+                   
+               }).catch(()=>{
+                   this.showModal = true;
+               })*/
+            },
+            gotoCart(){
+                this.$router.push('/cart');
             }
         }
     }
