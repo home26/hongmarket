@@ -52,7 +52,7 @@ export default {
         password
       }).then((res)=>{
         this.$cookie.set('userId',res.id,{expires:'1M'});
-        // keep username
+        this.$store.dispatch('saveUserName',res.username);
         this.$router.push('/index');
       })
     },

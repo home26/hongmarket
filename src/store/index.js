@@ -7,8 +7,8 @@ Vue.use(Vuex);
 const state = {
     username:'', // login username
     cartCount:0 // number of products in the cart
-};
-export default new Vue.Store({
+}
+export default new Vuex.Store({
     state,
     mutations,
     actions
