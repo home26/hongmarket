@@ -2,5 +2,5 @@
  * Vuex-mutations
  */
 export default {
-    
+       
 }
