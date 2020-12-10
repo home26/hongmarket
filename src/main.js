@@ -14,10 +14,13 @@ axios.defaults.timeout = 8000;
 //interceptor of wrong API request
 axios.interceptors.response.use(function(response){
   let res = response.data;
+  let path = location.hash;
   if(res.status == 0){
     return res.data;
   }else if(res.status == 10){
-    window.location.href = '/#/login';
+    if(path != '#/index'){
+      window.location.href = '/#/login';
+    }
   }else{
     alert(res.msg);
   }

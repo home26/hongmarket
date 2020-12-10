@@ -19,7 +19,7 @@
             <a href="javascript:;" class="btn" @click="login">Log In</a>
           </div>
           <div class="tips">
-            <div class="sms" @click="register">Login/Signup by phone numer</div>
+            <div class="sms" @click="register">Login/Signup By Phone Numer</div>
             <div class="reg">Sign Up<span>|</span>Forget Password</div>
           </div>
         </div>
@@ -69,16 +69,15 @@ export default {
 }
 </script>
 <style lang="scss">
+@import './../assets/scss/config.scss';
 .login{
   &>.container{
-    height:113px;
-    margin-top: 12px;
-    vertical-align: center;
+    height:70px;
+    margin-top: 20px;
+
     img{
-      //margin-top: 30px;
-      //margin-bottom: 30px;
       width:auto;
-      height:60%;
+      height:70%;
     }
   }
   .wrapper{
@@ -101,7 +100,7 @@ export default {
           text-align:center;
           margin:40px auto 49px;
           .checked{
-            color:#FF6600;
+            color:$colorA;
           }
           .sep-line{
             margin:0 32px;
@@ -130,10 +129,10 @@ export default {
           margin-top:14px;
           display:flex;
           justify-content:space-between;
-          font-size:14px;
+          font-size:12px;
           cursor:pointer;
           .sms{
-            color:#FF6600;
+            color:$colorA;
           }
           .reg{
             color:#999999;
