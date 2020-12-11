@@ -2,7 +2,7 @@
     <div>
       <product-param>
           <template v-slot:buy>
-              <button class="btn">BUY!</button>
+              <button class="btn">Buy Now!</button>
           </template>
       </product-param>
     </div>
