@@ -1,10 +1,14 @@
 <template>
     <div>
-        product
+      <product-param>123</product-param>
     </div>
 </template>
 <script>
+    import ProductParam from './../components/ProductParam'
     export default {
-        name:'product'
+        name:'product',
+        components:{
+            ProductParam
+        }
     }
 </script>
