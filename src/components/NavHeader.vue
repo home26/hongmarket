@@ -12,7 +12,7 @@
                 <a href="javascript:;" v-if="username">{{username}}</a>
                 <a href="javascript:;" v-if="!username" @click="login">Log In</a>
                 <a href="javascript:;" v-if="username">My Order</a>
-                <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>Cart</a>
+                <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>Cart({{cartCount}})</a>
             </div>
           </div>
       </div>
@@ -131,9 +131,16 @@ export default {
     name:'nav-header',
     data(){
         return {
-            username:'',
             phoneList:[]
         }
+    },
+    computed:{
+      username(){
+        return this.$store.state.username;
+      },
+      cartCount(){
+        return this.$store.state.cartCount;
+      }
     },
     filters:{
         currency(val){
@@ -188,6 +195,7 @@ export default {
                    background-color: #0059a3;
                    text-align: center;
                    color:#ffffff;
+                   margin-right: 0;
                    .icon-cart{
                       @include bgImg(16px,12px,'/imgs/icon-cart-checked.png',contain); 
                    }
