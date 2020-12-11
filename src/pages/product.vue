@@ -1,6 +1,6 @@
 <template>
     <div>
-      <product-param>123</product-param>
+      <product-param>123test</product-param>
     </div>
 </template>
 <script>
