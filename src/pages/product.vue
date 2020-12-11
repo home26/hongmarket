@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="product">
       <product-param>
           <template v-slot:buy>
               <button class="btn">Buy Now!</button>
@@ -16,3 +16,8 @@
         }
     }
 </script>
+<style lang="scss" >
+    .product{
+        margin-left: 10px;
+    }
+</style>
