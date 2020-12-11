@@ -1,6 +1,10 @@
 <template>
     <div>
-        <order-header></order-header>
+        <order-header title="Test">
+            <template v-slot:tip>
+                <span>The item has been added successfully</span>
+            </template>
+        </order-header>
         cart
         <nav-footer></nav-footer>
     </div>
