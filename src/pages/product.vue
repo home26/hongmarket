@@ -39,12 +39,12 @@
       <div class="item-video">
         <h2>Introduction<br/>Introduction</h2>
         <p>Introduction<br/>Introduction</p>
-        <div class="video-bg"></div>
+        <div class="video-bg" @click="showSlide=true"></div>
         <div class="video-box">
-          <div class="overlay"></div>
-          <div class="video">
-            <span class="icon-close"></span>
-            <video src="/imgs/product/video.mp4" muted autoplay controls="controls"></video>
+          <div class="overlay" v-if="showSlide"></div>
+          <div class="video" v-bind:class="{'slide':showSlide}">
+            <span class="icon-close" @click="showSlide=false"></span>
+            <video src="" muted autoplay controls="controls"></video>    
           </div>
         </div>
       </div>
@@ -63,6 +63,7 @@
         },
         data(){
             return {
+                showSlide:false,
                 swiperOption:{
                 autoplay:true,
                 slidesPerView:3,
@@ -157,8 +158,7 @@
           margin:0 auto 120px;
           cursor:pointer;
         }
-        .video-box{
-          
+        .video-box{         
           .overlay{
             @include position(fixed);
             background-color:#333333;
@@ -173,6 +173,12 @@
             z-index:10;
             width:1000px;
             height:536px;
+            opacity: 0;
+            transition: all .6s;
+            &.slide{
+                top:50%;
+                opacity: 1;
+            }
             .icon-close{
               position:absolute;
               top:20px;
