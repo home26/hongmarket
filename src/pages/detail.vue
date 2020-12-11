@@ -61,7 +61,7 @@
   </div>
 </template>
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import ProductParam from './../components/ProductParam'
 import ServiceBar from './../components/ServiceBar';
 export default{
@@ -82,8 +82,8 @@ export default{
     }
   },
   components:{
-    swiper,
-    swiperSlide,
+    Swiper,
+    SwiperSlide,
     ProductParam,
     ServiceBar
   },
