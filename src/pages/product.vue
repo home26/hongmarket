@@ -1,6 +1,10 @@
 <template>
     <div>
-      <product-param>123test</product-param>
+      <product-param>
+          <template v-slot:buy>
+              <button class="btn">BUY!</button>
+          </template>
+      </product-param>
     </div>
 </template>
 <script>
