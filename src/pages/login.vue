@@ -35,6 +35,7 @@
   </div>
 </template>
 <script>
+import { Message } from 'element-ui';
 export default {
   name: 'login',
   data(){
@@ -62,7 +63,8 @@ export default {
         password:'admin1',
         email:'admin1@163.com'
       }).then(()=>{
-        alert('Signed up successfully');
+        //alert('Signed up successfully');
+        Message.success('Signed up successfully');
       })
     }
   }

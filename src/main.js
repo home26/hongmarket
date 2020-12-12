@@ -3,8 +3,11 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
+import { Message } from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import App from './App.vue'
+import { from } from 'core-js/fn/array'
 //import env from './env'
 
 //adjust it based on how the front end implemented the cross-domain method
@@ -24,7 +27,8 @@ axios.interceptors.response.use(function(response){
       return Promise.reject(res);
     }
   }else{
-    alert(res.msg);
+    //alert(res.msg);
+    Message.warning(res.msg);
     return Promise.reject(res);
   }
 });

@@ -58,6 +58,7 @@
   import OrderHeader from './../components/OrderHeader'
   import ServiceBar from './../components/ServiceBar'
   import NavFooter from './../components/NavFooter'
+  import { Message } from 'element-ui'
   export default{
     name:'index',
     components:{
@@ -88,13 +89,15 @@
               selected = item.productSelected;
           if(type == '-'){
               if(quantity == 1){
-                  alert('You must buy at leaset one item');
+                  //alert('You must buy at leaset one item');
+                  Message.warning('You must buy at leaset one item')
                   return;
               }
               --quantity;
           }else if(type == '+'){
               if(quantity >= item.productStock){
-                  alert('The number of item can not be over the stock');
+                  Message.warning('The number of item can not be over the stock');
+                  //alert('The number of item can not be over the stock');
                   return;
               }
               ++quantity;
@@ -111,6 +114,7 @@
       //delete product
       delProduct(item){
           this.axios.delete(`/carts/${item.productId}`).then((res)=>{
+              Message.success('Deleted successfully');
               this.renderData(res);
           })
       },
@@ -132,7 +136,8 @@
       order(){
         let isCheck = this.list.every(item=>!item.productSelected);
         if(isCheck){
-          alert('Please select at least one item');
+          //alert('Please select at least one item');
+          Message.warning('Please select at least one item');
         }else{
           this.$router.push('/order/confirm');
         }
