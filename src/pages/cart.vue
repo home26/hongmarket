@@ -45,7 +45,7 @@
           </div>
           <div class="total fr">
             Total:$<span>{{cartTotalPrice}}</span>
-            <a href="javascript:;" class="btn">Pay</a>
+            <a href="javascript:;" class="btn" @click="order">Pay</a>
           </div>
         </div>
       </div>
@@ -127,6 +127,15 @@
         this.allChecked = res.selectedAll;
         this.cartTotalPrice = res.cartTotalPrice;
         this.checkedNum = this.list.filter(item=>item.productSelected).length;
+      },
+      //Order
+      order(){
+        let isCheck = this.list.every(item=>!item.productSelected);
+        if(isCheck){
+          alert('Please select at least one item');
+        }else{
+          this.$router.push('/order/confirm');
+        }
       }
     }
   }
