@@ -152,6 +152,10 @@ export default {
     },
     mounted(){
         this.getProductList();
+        let params = this.$route.params;
+        if(params && params.from == 'login'){
+            this.getCartCount();
+        }
     },
     methods:{
        login(){
@@ -169,6 +173,11 @@ export default {
                }
            })
        },
+        getCartCount(){
+            this.axios.get('/carts/products/sum').then((res)=>{
+                this.$store.dispatch('saveCartCount',res);
+            })      
+        },
        logout(){
            this.axios.post('/user/logout').then(()=>{
                Message.success('Exited successfully');
