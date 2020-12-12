@@ -7,7 +7,6 @@ import { Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import App from './App.vue'
-import { from } from 'core-js/fn/array'
 //import env from './env'
 
 //adjust it based on how the front end implemented the cross-domain method
