@@ -35,6 +35,7 @@
   </div>
 </template>
 <script>
+import { Message } from 'element-ui';
 export default {
   name: 'login',
   data(){
@@ -51,9 +52,14 @@ export default {
         username,
         password
       }).then((res)=>{
-        this.$cookie.set('userId',res.id,{expires:'1M'});
+        this.$cookie.set('userId',res.id,{expires:'Session'});
         this.$store.dispatch('saveUserName',res.username);
-        this.$router.push('/index');
+        this.$router.push({
+          name: 'index',
+          params:{
+            from: 'login'
+          }
+        });
       })
     },
     register(){
@@ -62,7 +68,8 @@ export default {
         password:'admin1',
         email:'admin1@163.com'
       }).then(()=>{
-        alert('Signed up successfully');
+        //alert('Signed up successfully');
+        Message.success('Signed up successfully');
       })
     }
   }

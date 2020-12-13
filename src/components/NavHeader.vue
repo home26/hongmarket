@@ -10,7 +10,8 @@
             </div>
             <div class="topbar-user">
                 <a href="javascript:;" v-if="username">{{username}}</a>
-                <a href="javascript:;" v-if="!username" @click="login">Log In</a>
+                <a href="javascript:;" v-if="!username" @click="login">LogIn</a>
+                <a href="javascript:;" v-if="username" @click="logout">Exit</a>
                 <a href="javascript:;" v-if="username">My Order</a>
                 <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>Cart({{cartCount}})</a>
             </div>
@@ -127,6 +128,7 @@
     </div>
 </template>
 <script>
+import { Message } from 'element-ui';
 export default {
     name:'nav-header',
     data(){
@@ -150,6 +152,10 @@ export default {
     },
     mounted(){
         this.getProductList();
+        let params = this.$route.params;
+        if(params && params.from == 'login'){
+            this.getCartCount();
+        }
     },
     methods:{
        login(){
@@ -166,6 +172,18 @@ export default {
                    this.phoneList = res.list.slice(0,6);     
                }
            })
+       },
+        getCartCount(){
+            this.axios.get('/carts/products/sum').then((res)=>{
+                this.$store.dispatch('saveCartCount',res);
+            })      
+        },
+       logout(){
+           this.axios.post('/user/logout').then(()=>{
+               Message.success('Exited successfully');
+               this.$store.dispatch('saveUserName','');     
+               this.$store.dispatch('saveCartCount','0');                        
+           })           
        },
        goToCart(){
           this.$router.push('/cart');
