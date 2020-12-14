@@ -1,5 +1,10 @@
 <template>
   <div class="order-pay">
+    <order-header title="Pay your order">
+          <template v-slot:tip>
+              <span>Wish you a happy shopping journey!</span>
+          </template>
+    </order-header>
     <div class="wrapper">
       <div class="container">
         <div class="order-wrap">
@@ -68,6 +73,7 @@
 </template>
 <script>
 import QRCode from 'qrcode'
+import OrderHeader from './../components/OrderHeader'
 import ScanPayCode from './../components/ScanPayCode'
 import Modal from './../components/Modal'
 export default{
@@ -87,6 +93,7 @@ export default{
     }
   },
   components:{
+    OrderHeader,
     ScanPayCode,
     Modal
   },

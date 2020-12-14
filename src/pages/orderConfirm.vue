@@ -1,5 +1,10 @@
 <template>
   <div class="order-confirm">
+    <order-header title="Confirm Title">
+          <template v-slot:tip>
+              <span>Wish you a happy shopping journey!</span>
+          </template>
+    </order-header>
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0px; height: 0px; overflow: hidden;">
       <defs>
         <symbol id="icon-add" viewBox="0 0 31 32">
@@ -155,8 +160,10 @@
   </div>
 </template>
 <script>
+import OrderHeader from './../components/OrderHeader'
 import { Message } from 'element-ui';
 import Modal from './../components/Modal'
+//import OrderHeader from '../components/OrderHeader.vue';
 export default{
   name:'order-confirm',
   data(){
@@ -173,7 +180,9 @@ export default{
     }
   },
   components:{
+    OrderHeader,
     Modal
+    //OrderHeader
   },
   mounted(){
     this.getAddressList();
